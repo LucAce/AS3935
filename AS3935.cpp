@@ -128,8 +128,8 @@ bool AS3935::tuneAntenna(uint8_t irq_pin) {
     int      count        = 0;
     uint8_t  best_tune    = 0;
 
-    uint8_t current_irq;
-    uint8_t previous_irq;
+    uint8_t  current_irq;
+    uint8_t  previous_irq;
 
     // Set the LCO divider ratio to 16
     this->setLcoFDiv(0);

@@ -40,7 +40,7 @@
 // - http://arduino.esp8266.com/stable/package_esp8266com_index.json
 //
 // Notes:
-// - This example uses IRQ Pin Polling to determine when an interrupt
+// - This example polls the IRQ Pin to determine when an interrupt
 //   on the AS3935 occurs.
 //
 //*****************************************************************************
@@ -164,7 +164,7 @@ void setup() {
     Serial.println(as3935.getNoiseFloorLevel(), DEC);
     Serial.println();
 
-    // Turn LED Of
+    // Turn LED Off
     digitalWrite(LED_BUILTIN, LED_OFF);
 }
 
@@ -174,8 +174,8 @@ void setup() {
 // Main Processing Loop.
 //*****************************************************************************
 void loop() {
-    uint8_t  irq;
-    uint8_t  distance;
+    uint8_t irq;
+    uint8_t distance;
 
     // Return if no interrupt
     if (digitalRead(AS3935_IRQ_PIN) == LOW)
@@ -183,7 +183,8 @@ void loop() {
 
     digitalWrite(LED_BUILTIN, LED_ON);
 
-    // Delay at least 2ms following interrupt to for registers to populate
+    // Delay at least 2ms following an interrupt for registers to populate
+    // (Per datasheet)
     delay(2);
 
     // Get interrupt register value
