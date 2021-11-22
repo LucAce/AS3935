@@ -81,7 +81,7 @@
 #define AS3935_REG0x03_LCO_FDIV         0x03,0xC0
 // R/W - Mask Disturber
 #define AS3935_REG0x03_MASK_DIST        0x03,0x20
- // RO  - Interrupt
+// RO  - Interrupt
 #define AS3935_REG0x03_INT              0x03,0x0F
 
 // Register 0x04
